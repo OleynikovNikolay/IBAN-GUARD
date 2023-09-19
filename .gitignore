@@ -1,0 +1,12 @@
+# ignoring cmake objectsgit 
+cmake_install.cmake
+CMakeCache.txt 
+Makefile
+CMakeFiles/
+
+# ignoring .vscode tasks.json
+.vscode/
+
+# ignoring ds_store
+.DS_Store
+src/.DS_Store
