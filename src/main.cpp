@@ -3,29 +3,30 @@
 #include <cctype>
 
 bool isValidIBAN(const std::string& iban) {
-    // Check IBAN length based on specific country rules
+
+    // checking iban length.
     if (iban.length() != 22) {
         return false;
     }
 
-    // Check if all characters are alphanumeric
+    // checking if there are any specific characters in the iban.
     for (char c : iban) {
         if (!std::isalnum(c)) {
             return false;
         }
     }
 
-    // Extract check digits and IBAN base
+
     std::cout << iban << std::endl;
     std::string checkDigits = iban.substr(iban.length() - 2);
     std::string ibanBase = iban.substr(0, iban.length() - 2);
 
-    // Rearrange IBAN
+    // rearranging the iban to calculate modulo-97.
     std::string rearrangedIBAN = ibanBase.substr(4) + ibanBase.substr(0, 4);
 
     std::cout << rearrangedIBAN << std::endl;
 
-    // Perform modulo-97 checksum
+    // performing modulo-97 checksum.
     unsigned long long remainder = 0;
     for (char c : rearrangedIBAN) {
         if (std::isdigit(c)) {
