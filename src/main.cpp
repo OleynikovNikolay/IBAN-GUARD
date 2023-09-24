@@ -25,16 +25,16 @@ int main(int argc, char* argv[]) {
     bool validityCountry = ibanObject.isValidCountry();
     bool validityCheckSum = ibanObject.isValidCheckSum();
 
-    if (!validityLength){
-        std::cerr << "IBAN length is not valid." << std::endl;
-        return EXIT_FAILURE;
-    }
     if (!validityCharacter){
         std::cerr << "IBAN has invalid characters." << std::endl;
         return EXIT_FAILURE;
     }
     if (!validityCountry){
         std::cerr << "This IBAN country is not supported." << std::endl;
+        return EXIT_FAILURE;
+    }
+    if (!validityLength){
+        std::cerr << "IBAN length is not valid." << std::endl;
         return EXIT_FAILURE;
     }
     if (!validityCheckSum){

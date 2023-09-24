@@ -45,27 +45,9 @@ ibanNumber::ibanNumber(const std::string& iban, const std::string& country)
     : iban(iban), country(country){
 }
 
-// setters
-void ibanNumber::setIBAN(const std::string newIBAN){
-    iban = newIBAN;
-}
-
-void ibanNumber::setCountry(const std::string newCountry){
-    country = newCountry;
-}
-
-// getters
-std::string ibanNumber::getIBAN(){
-    return iban;
-}
-
-std::string ibanNumber::getCountry(){
-    return country;
-}
-
 // validations
 bool ibanNumber::isValidLength(){
-    return lengthMap.at(country) == iban.length();
+    return lengthMap.find(country) != lengthMap.end() && lengthMap.at(country) == iban.length();
 }
 
 bool ibanNumber::isValidCharacter(){

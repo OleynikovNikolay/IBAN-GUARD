@@ -10,15 +10,10 @@ This header declares ibanNumber class, its attributes and its methods.
 
 class ibanNumber{
     public:
+    std::string iban;
+    std::string country;
     ibanNumber(const std::string& iban, const std::string& country);
-    // setters
-    void setIBAN(const std::string newIBAN);
-    void setCountry(const std::string newCountry);
-
-    // getters
-    std::string getIBAN();
-    std::string getCountry();
-
+    
     // validations
     bool isValidLength();
     bool isValidCountry();
@@ -26,9 +21,6 @@ class ibanNumber{
     bool isValidCheckSum();
 
     private:
-    std::string iban;
-    std::string country;
-
     static const std::unordered_map<std::string, int> lengthMap;
 };
 
