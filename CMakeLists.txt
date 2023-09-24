@@ -7,4 +7,9 @@ project(IBAN-GUARD VERSION 1.0)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
-add_executable(IBAN-GUARD src/main.cpp)
+add_executable(IBAN-GUARD 
+                    src/main.cpp
+                    src/ibanNumber.cpp)
+
+target_include_directories(IBAN-GUARD PRIVATE ${CMAKE_SOURCE_DIR}/include)
+
