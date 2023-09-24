@@ -1,13 +1,13 @@
 #include <iostream>
 #include <string>
 #include <cctype>
+#include <sstream>
 
 bool isValidIBAN(const std::string& iban) {
-
     // checking iban length.
-    if (iban.length() != 22) {
-        return false;
-    }
+    //if (iban.length() != 22) {
+    //    return false;
+    //}
 
     // checking if there are any specific characters in the iban.
     for (char c : iban) {
@@ -16,28 +16,27 @@ bool isValidIBAN(const std::string& iban) {
         }
     }
 
+    std::string rearrangedIBAN = iban.substr(4) + iban.substr(0, 4);
 
-    std::cout << iban << std::endl;
-    std::string checkDigits = iban.substr(iban.length() - 2);
-    std::string ibanBase = iban.substr(0, iban.length() - 2);
+    std::string convertedIBAN;
 
-    // rearranging the iban to calculate modulo-97.
-    std::string rearrangedIBAN = ibanBase.substr(4) + ibanBase.substr(0, 4);
-
-    std::cout << rearrangedIBAN << std::endl;
-
-    // performing modulo-97 checksum.
-    unsigned long long remainder = 0;
-    for (char c : rearrangedIBAN) {
-        if (std::isdigit(c)) {
-            remainder = (remainder * 10 + (c - '0')) % 97;
-        } else if (std::isalpha(c)) {
-            remainder = (remainder * 10 + (c - 'A' + 10)) % 97;
+    for (char c: rearrangedIBAN){
+        if(std::isdigit(c)){
+            convertedIBAN += c;
+        } else if (std::isalpha(c)){
+            convertedIBAN += std::to_string(c - 'A' + 10);
         }
     }
 
-    std::cout << remainder << std::endl;
-    return remainder == 1;
+    // the iban number does not fit into long long - therefore iteration
+    int index = 1;
+    unsigned long long digit = 0;
+    unsigned long long leftover = 0;
+    for (index = 0; index < convertedIBAN.length(); index++){
+        digit = std::stoll(convertedIBAN.substr(index, 1));
+        leftover = (10 * leftover + digit) % 97;
+    }
+    return leftover == 1; 
 }
 
 void toUpper(char* str) {
@@ -57,9 +56,9 @@ int main(int argc, char* argv[]) {
     std::string iban = argv[1];
 
     if (isValidIBAN(iban)) {
-        std::cout << "IBAN is valid." << std::endl;
+        std::cout << "IBAN checksum is valid." << std::endl;
     } else {
-        std::cout << "IBAN is not valid." << std::endl;
+        std::cout << "IBAN checksum is not valid." << std::endl;
     }
 
     return EXIT_SUCCESS;
