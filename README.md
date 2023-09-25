@@ -1,6 +1,6 @@
-# IBAN-GUARD
+# IBAN-GUARD :guard: :dog:
 
-This is CLI application allowing users to validate the European IBAN numbers[^1]. :guard: :dog:
+This is CLI application allowing users to validate the European IBAN numbers[^1].
 
 [^1]:Following countries are supported:
     - Andorra {AD}
