@@ -5,6 +5,9 @@ This header files declares small inline utility functions.
 #include <string>
 #include <cctype>
 
+#ifndef UTILS_H
+#define UTILS_H
+
 // overwrites non-whitespace characters
 inline void trimWhitespaces(char* str){
     char* writePointer = str;
@@ -26,3 +29,13 @@ inline void toUpper(char* str) {
         str++;
     }
 }
+
+// converts to lower
+inline void toLower(char* str) {
+    while (*str) {
+        *str = tolower(*str);
+        str++;
+    }
+}
+
+#endif //UTILS_H
