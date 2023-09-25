@@ -1,6 +1,6 @@
 # IBAN-GUARD
 
-This is CLI application allowing users to validate the European IBAN numbers[^1]. :shipit:
+This is CLI application allowing users to validate the European IBAN numbers[^1].
 
 [^1]:Following countries are supported:
     - Andorra {AD}
