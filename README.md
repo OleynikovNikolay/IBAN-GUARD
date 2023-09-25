@@ -42,8 +42,8 @@ This is CLI application allowing users to validate the European IBAN numbers[^1]
 # Installation
 1. Clone the repo
 ```
-git clone https://github.com/OleynikovNikolay/IBAN-Guard
-cd IBAN-Guard
+git clone https://github.com/OleynikovNikolay/IBAN-GUARD
+cd IBAN-GUARD
 ```
 2. Compile with CMake 
 ``` 
