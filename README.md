@@ -84,6 +84,17 @@ docker run iban-guard /app/bin/mac/IBAN-GUARD --help
 docker run iban-guard /app/bin/mac/IBAN-GUARD --validate-iban [IBAN]
 ```
 
+## x86_64 Windows
+1. Clone the repo
+```
+git clone https://github.com/OleynikovNikolay/IBAN-GUARD
+cd CHRONOMATE-SUITE
+```
+2. start binary 
+```
+cd bin/win
+IBAN-GUARD.exe
+```
 
 # Usage 
 ## Navigation Page
