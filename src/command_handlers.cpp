@@ -12,7 +12,7 @@ void showHelp(){
     std::cout << "  ./IBAN-GUARD                  [--help; --validate-iban]" << std::endl;
     std::cout << "  --help                        Shows navigation page." << std::endl;
     std::cout << "                                Usage: --help" << std::endl;
-    std::cout << "  -validate-iban                Validates the IBAN number." << std::endl;
+    std::cout << "  --validate-iban               Validates the IBAN number." << std::endl;
     std::cout << "                                Usage: --validate-iban iban_number" << std::endl;
 }
 
