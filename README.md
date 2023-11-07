@@ -77,9 +77,17 @@ docker build -t iban-guard .
 ```
 docker images | grep iban-guard
 ```
-4. Run docker in interactive terminal session 
+4. Run docker in iteractive terminal session 
 ```
 docker run -it iban-guard
+```
+4. 1. help 
+```
+docker run iban-guard /app/bin/mac/IBAN-GUARD --help
+```
+4. 2. help 
+```
+docker run iban-guard /app/bin/mac/IBAN-GUARD --validate-iban [IBAN]
 ```
 
 

@@ -26,5 +26,5 @@ WORKDIR /app/mac_build/
 RUN cmake . && \
     make
 
-# setting the entry point of the container (you can modify this as needed)
+
 CMD ["/app/bin/mac/IBAN-GUARD"]
