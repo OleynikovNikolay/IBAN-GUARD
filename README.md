@@ -93,7 +93,8 @@ cd CHRONOMATE-SUITE
 2. start binary 
 ```
 cd bin/win
-IBAN-GUARD.exe
+IBAN-GUARD.exe --help
+IBAN-GUARD.exe --validate-iban [IBAN]
 ```
 
 # Usage 
